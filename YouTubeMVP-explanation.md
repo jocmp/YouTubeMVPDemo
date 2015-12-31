@@ -188,4 +188,4 @@ And that's it! If you want to learn more about MVP in Android, I recommend readi
 article, or Antonio Leiva's [MVP for Android](http://antonioleiva.com/mvp-android/).
 For information on RxJava, Dan Lew's [Grokking RxJava](http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/) series is an invaluable resource.
 
-The example code from this article is open-source and accessible on GitHub. Download it, get an API key and enjoy.
+The example code from this article is open-source and accessible on [GitHub](https://github.com/josiahcampbell/YouTubeMVPDemo/). Download it, get an API key and enjoy.
