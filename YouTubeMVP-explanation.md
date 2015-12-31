@@ -8,16 +8,16 @@ By molding the view and presentation layers into one class - the
 
 ### MVP: A Design Solution
 
-But this shouldn't completely discourage someone from programming in Android. By
+But Activity's view-presenter design shouldn't discourage programming Android development. By
 being aware of Android's shortcomings, it becomes easier to find solutions.
 Enter Model-View-Presenter, or MVP for short. The MVP architecture allows
 developers to separate the model (Plain Old Java Objects) from the presenter
 (more on this below) and the Activity class.
 
 In MVP, the Activity class is oblivious to any behavior logic. Instead, the Activity
-is our View. It displays boundary data to the user and routes events - such as
+is strictly a view. It displays boundary data and routes user events - such as
 a button click or a swipe-to-refresh action - to the presenter class. The presenter acts
-on the view and manipulates the model. The Activity knows nothing about the model!
+on the view and manipulates the model.
 
 ### Toolbelt
 
@@ -34,9 +34,9 @@ All of these tools can be implemented using the Gradle build tool which is built
 ### Example Time
 
 #### M is for Model
-Let's say we want to get back a feed from a Grand Valley State University [YouTube channel](https://www.youtube.com/user/gvsu).
-In order to do this, we'll need to access the [YouTube Data API](https://developers.google.com/youtube/v3/)
-and pull down information in a JSON format. Already we have our model data, which looks something like this:
+The goal of this sample application is to retrieve video information from the Grand Valley State University [YouTube channel](https://www.youtube.com/user/gvsu).
+This process will require to access the [YouTube Data API](https://developers.google.com/youtube/v3/)
+and pull down information in a JSON format. Since the model data is defined already defined, the API's JSON response looks something like this:
 
 ```json
 {
@@ -69,15 +69,15 @@ and pull down information in a JSON format. Already we have our model data, whic
   }
 }
 ```
-Already we're face with a plethora of POJOs we need to create: one for the
+Already the API provides a plethora of POJOs: one for the
 `playlistItemListResponse`, another for `playlistItem`, `snippet` and so on. The
 easiest solution I've found is to automate this part of the process by using a schema
-converter: http://www.jsonschema2pojo.org/. This allows us to generate precise POJOs that
+converter: http://www.jsonschema2pojo.org/. This simple web app generates one-to-one POJOs that
 even have Gson annotations. Sweet!
 
 #### Service API
-We have our model classes, but how do we retrieve the data from the API in Java?
-The easiest way is to create a service class to handle the API.
+Model classes are settled, but how does one retrieve data from the YouTube API in Java?
+The easiest way is to create a service class to handle the API using a `RestAdapter`.
 ```java
 public class YouTubeService {
 
@@ -93,7 +93,8 @@ public class YouTubeService {
   }
   // ...
 ```
-Using Retrofit, we can create an interface that will handle the YouTube Data API's endpoints:
+The next step is to create an interface that will handle the YouTube Data API's endpoints
+using Retrofit:
 
 ```java
 public interface YouTubeApi {
@@ -107,8 +108,9 @@ public interface YouTubeApi {
 
 #### P is for Presenter
 
-With our model classes defined, we can focus on the Presenter. The presenter should
-be stateless, so we'll pass in a copy of our activity and the YouTube service class:
+The presenter class will handle data and user events, so it will take a copy of
+the Activity and the YouTube service class:
+
 ```java
 public MainPresenter(MainActivity activity, YouTubeService youTubeService) {
   mView = activity;
@@ -117,11 +119,12 @@ public MainPresenter(MainActivity activity, YouTubeService youTubeService) {
 }
 ```
 The presenter class will handle any interactions with the API, any modifications of the model data,
-and receive user commands from the view. For example, if a user swipes-to-refresh,
+and receive user commands from the view.
 
 #### V is for View
-When we create the Activity, we need a instance of the service and the presenter, and
-then add in any other view information, such as a list to display our YouTube results.
+When the activity is created it instantiates the service and the presenter, along with any
+other view-related information such as a list to display our YouTube results.
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -137,8 +140,9 @@ public class MainActivity extends AppCompatActivity {
     // Set up the RecyclerView here ...
   }
 ```
-Now if we want to handle a swipe-to-refresh event, all we need to do is call the
-presenter class from the Activity:
+In order to handle a swipe-to-refresh event, the instance of the layout will
+call a method in the presenter class:
+
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
