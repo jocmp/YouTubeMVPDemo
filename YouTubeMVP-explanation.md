@@ -185,7 +185,7 @@ the view (Activity) will set accordingly, but at no point does the view need to 
 _why_ the method `setLoading` is being called. This is the beauty of MVP: [separation of concerns](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/).
 
 And that's it! If you want to learn more about MVP in Android, I recommend reading Fernandos Cejas' [Architecting Android](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)
-article, or Antoio Leiva's [MVP for Android](http://antonioleiva.com/mvp-android/).
+article, or Antonio Leiva's [MVP for Android](http://antonioleiva.com/mvp-android/).
 For information on RxJava, Dan Lew's [Grokking RxJava](http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/) series is an invaluable resource.
 
 The example code from this article is open-source and accessible on GitHub. Download it, get an API key and enjoy.
