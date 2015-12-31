@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true">
+    <ImageView android:id="@+id/imageView"
+        android:layout_width="128dp"
+        android:layout_height="96dp"
+        android:layout_margin="8dp"
+        android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:layout_toEndOf="@+id/imageView">
+        <TextView android:id="@+id/title"
+            android:paddingTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Title"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#DB000000" />
+        <TextView android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:paddingTop="8dp"
+            android:ellipsize="end"
+            tools:text="Description"
+            android:textColor="#DB000000" />
+    </LinearLayout>
+</RelativeLayout>
