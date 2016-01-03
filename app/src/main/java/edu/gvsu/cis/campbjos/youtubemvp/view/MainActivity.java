@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Bind;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,18 +31,18 @@ public class MainActivity extends AppCompatActivity {
   private MainPresenter mPresenter;
   private YouTubeService mYouTubeService;
 
-  @InjectView(R.id.recyclerView)
+  @Bind(R.id.recyclerView)
   RecyclerView mRecyclerView;
-  @InjectView(R.id.swipeRefreshLayout)
+  @Bind(R.id.swipeRefreshLayout)
   SwipeRefreshLayout mSwipeRefreshLayout;
-  @InjectView(R.id.circleProgressBar)
+  @Bind(R.id.circleProgressBar)
   ProgressBar circleProgressBar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    ButterKnife.inject(this);
+    ButterKnife.bind(this);
     mYouTubeService = new YouTubeService();
     mPresenter = new MainPresenter(this, mYouTubeService);
 
