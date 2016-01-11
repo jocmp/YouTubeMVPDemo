@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
     mRecyclerView.setAdapter(mAdapter);
     mRecyclerView.addOnItemTouchListener(
         new RecyclerItemClickListener(this, mRecyclerView,
-            (View view, int position) -> mPresenter.startYouTubeIntent(position)
+            (View view, int position) ->
+                mPresenter.startYouTubeIntent(position)
         )
     );
     mPresenter.loadPlaylistItems();

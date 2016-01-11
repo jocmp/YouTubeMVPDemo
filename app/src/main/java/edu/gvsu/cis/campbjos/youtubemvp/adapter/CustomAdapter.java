@@ -31,8 +31,8 @@ import edu.gvsu.cis.campbjos.youtubemvp.model.PlaylistItem;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Provide views to RecyclerView with data from mDataSet.
@@ -43,7 +43,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
   private List<PlaylistItem> mDataSet;
 
   // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
-
   /**
    * Initialize the dataset of the Adapter.
    *
@@ -90,16 +89,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
    */
   public static class ViewHolder extends RecyclerView.ViewHolder {
 
-    @InjectView(R.id.title)
+    @Bind(R.id.title)
     TextView titleTextView;
-    @InjectView(R.id.description)
+    @Bind(R.id.description)
     TextView descriptionTextView;
-    @InjectView(R.id.imageView)
+    @Bind(R.id.imageView)
     ImageView imageView;
 
     public ViewHolder(View view) {
       super(view);
-      ButterKnife.inject(this, view);
+      ButterKnife.bind(this, view);
     }
 
     public void setTitle(String title) {
@@ -110,6 +109,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
       descriptionTextView.setText(description);
     }
 
+    /**
+     * Populate item ImageView with video thumbnail using Picasso.
+     *
+     * @param url Url for video thumbnail
+     */
     public void setImageView(String url) {
       Picasso.with(YouTubeMvpApplication.getAppContext())
           .load(url)

@@ -15,10 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--
         <meta-data android:name="YOUTUBE_API_KEY"
                    android:value="PUT YOUR KEY HERE" />
-        -->
     </application>
 </manifest>
