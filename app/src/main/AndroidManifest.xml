@@ -2,8 +2,7 @@
 <manifest package="edu.gvsu.cis.campbjos.youtubemvp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
-    <application
-        android:name=".YouTubeMvpApplication"
+    <application android:name=".YouTubeMvpApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +15,6 @@
             </intent-filter>
         </activity>
         <meta-data android:name="YOUTUBE_API_KEY"
-                   android:value="PUT YOUR KEY HERE" />
+                   android:value="AIzaSyBUPwUuvnWxYyYN-TpX0m7fGH7dPPcq0tY" />
     </application>
 </manifest>
