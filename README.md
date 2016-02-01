@@ -1,3 +1,8 @@
+### YouTube MVP Demo
+
+_This explanation is published on the GVSU [Mobile Applications and Services
+Laboratory](http://masl.cis.gvsu.edu/2016/01/26/android-mvp/) website._
+
 Android is a beautiful, misunderstood platform. On one hand, the Android framework
 provides an accessible starting through Java, but drops the ball on user interface architecture.
 The iOS platform provides a straight-forward way of dealing with the separation of model data,
